@@ -1,3 +1,4 @@
+import FileModel from '../models/FileModel'
 import UserRepository from '../repositories/UserRepository'
 
 export default class UserService {
@@ -6,6 +7,10 @@ export default class UserService {
   }
 
   findAll() {
-    return this.userRepository.findAll()
+    return this.userRepository.findAll({ include: [{ model: FileModel, as: 'files' }] })
+  }
+
+  delete(id) {
+    return this.userRepository.delete(id)
   }
 }

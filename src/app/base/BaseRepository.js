@@ -23,7 +23,7 @@ export default class BaseRepository {
     return this.model.update(data, { where: { id }, ...options })
   }
 
-  delete(id) {
-    return this.model.destroy(id)
+  delete(id, options) {
+    return this.model.destroy({ where: { id }, ...options })
   }
 }

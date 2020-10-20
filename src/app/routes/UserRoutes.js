@@ -9,6 +9,12 @@ const userRoutes = [
     action: userController.index.bind(userController),
     middlewares: [],
   },
+  {
+    method: 'delete',
+    path: '/users/:id',
+    action: userController.delete.bind(userController),
+    middlewares: [],
+  },
 ]
 
 export default userRoutes

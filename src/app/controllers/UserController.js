@@ -16,4 +16,17 @@ export default class UserController {
       return response.internalErrorResponse(e)
     }
   }
+
+  async delete(request, response) {
+    try {
+      const { id } = request.routeParams()
+      await this.userService.delete(id)
+
+      return response.noContentResponse()
+    } catch (e) {
+      console.log(e)
+
+      return response.internalErrorResponse(e)
+    }
+  }
 }

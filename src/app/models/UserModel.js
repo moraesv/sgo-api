@@ -15,7 +15,14 @@ class UserModel extends BaseModel {
     password: DataTypes.STRING,
   }
 
-  static associate() {}
+  static relations = [
+    {
+      relation: 'hasMany',
+      model: 'FileModel',
+      as: 'files',
+      foreignKey: 'userId',
+    },
+  ]
 }
 
 export default UserModel

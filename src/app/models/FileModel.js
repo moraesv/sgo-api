@@ -25,7 +25,14 @@ class FileModel extends BaseModel {
     },
   }
 
-  static associate() {}
+  static relations = [
+    {
+      relation: 'belongsTo',
+      model: 'UserModel',
+      as: 'user',
+      foreignKey: 'userId',
+    },
+  ]
 }
 
 export default FileModel
