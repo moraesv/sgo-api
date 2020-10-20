@@ -1,0 +1,7 @@
+.env
+.build
+build
+coverage
+docker-compose.override.yml
+node_modules
+yarn-error.log

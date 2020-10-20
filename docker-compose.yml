@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  postgres:
+    container_name: sgo-mysql
+    image: postgres
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+  mailcatcher:
+    container_name: sgo-mailcatcher
+    image: sj26/mailcatcher
+    ports:
+      - 1080:1080
+      - 1025:1025
+  memcached:
+    container_name: sgo-memcached
+    image: memcached:1.6.5
+    ports:
+      - 11211:11211

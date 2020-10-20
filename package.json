@@ -1,0 +1,45 @@
+{
+  "name": "sgo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "",
+  "author": "SGO Team",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "7.2.0",
+    "nodemon": "^2.0.4",
+    "sequelize-cli": "^6.2.0",
+    "sucrase": "^3.15.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "env-cmd": "^10.1.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.13.0",
+    "eslint-plugin-import": "2.21.2",
+    "eslint-plugin-prettier": "^3.1.4",
+    "express": "^4.17.1",
+    "http-status": "^1.4.2",
+    "joi": "^17.2.1",
+    "pg": "^8.3.3",
+    "prettier": "^2.1.2",
+    "sequelize": "^6.3.5"
+  },
+  "scripts": {
+    "dev": "env-cmd -f ./.env nodemon ./src/server.js",
+    "build": "env-cmd -f ./.env sucrase ./src -d ./build --transforms imports",
+    "commit": "git-cz",
+    "lint": "yarn eslint ./src",
+    "db:recreate": "env-cmd -f ./.env sequelize db:drop && env-cmd -f ./.env sequelize db:create --charset utf8mb4",
+    "migrate": "env-cmd -f ./.env sequelize db:migrate",
+    "migrate:apply": "yarn migrate && yarn seed",
+    "migrate:create": "env-cmd -f ./.env sequelize migration:create --name",
+    "migrate:undo": "env-cmd -f ./.env sequelize db:migrate:undo",
+    "migrate:undo:all": "env-cmd -f ./.env sequelize db:migrate:undo:all",
+    "seed": "env-cmd -f ./.env sequelize db:seed:all",
+    "seed:create": "env-cmd -f ./.env sequelize seed:generate --name",
+    "seed:undo": "env-cmd -f ./.env sequelize db:seed:undo --seed",
+    "seed:undo:all": "env-cmd -f ./.env sequelize db:seed:undo:all"
+  }
+}
