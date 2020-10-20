@@ -1,10 +1,10 @@
-import Request from '../base/Request'
 import Response from '../base/Response'
 
-export default (error, req, res) => {
+export default (error, req, res, next) => {
   console.error(`\x1b[41m${error}\x1b[0m`) // Erro em vermelho
 
-  const response = new Response(res, new Request(req))
+  /* new Response(res)
 
-  return response.internalErrorResponse(error)
+  return res.internalErrorResponse(error) */
+  return res.status(500).json({ message: 'Internal server error' })
 }

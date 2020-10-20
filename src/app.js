@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+import path from 'path'
 import appConfig from './app/config/app'
 import clientConfig from './app/config/client'
 import errorHandler from './app/middlewares/errorHandler'
@@ -45,6 +46,8 @@ class App {
     )
 
     this.app.use(routes)
+
+    this.app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')))
 
     this.app.use(errorHandler)
 
