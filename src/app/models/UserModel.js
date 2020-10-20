@@ -1,6 +1,6 @@
 import { DataTypes } from 'sequelize'
 
-import BaseModel from '../../base/BaseModel'
+import BaseModel from '../base/BaseModel'
 
 class UserModel extends BaseModel {
   static init() {

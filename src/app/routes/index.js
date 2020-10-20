@@ -1,6 +1,6 @@
 import { Router } from 'express'
-import Request from '../../base/Request'
-import Response from '../../base/Response'
+import Request from '../base/Request'
+import Response from '../base/Response'
 
 import userRoutes from './UserRoutes'
 

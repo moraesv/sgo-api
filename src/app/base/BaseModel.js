@@ -1,6 +1,6 @@
 import { Model } from 'sequelize'
 
-import connection from '../app/config/connection'
+import connection from '../config/connection'
 
 class BaseModel extends Model {
   static init(model) {
