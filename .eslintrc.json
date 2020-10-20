@@ -16,7 +16,8 @@
   },
   "rules": {
     "prettier/prettier": "error",
-    "no-console":"off",
-    "no-new":"off"
+    "no-console": "off",
+    "no-new": "off",
+    "class-methods-use-this": "off"
   }
 }
