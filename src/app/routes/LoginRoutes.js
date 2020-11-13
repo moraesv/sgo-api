@@ -6,7 +6,7 @@ const loginController = new LoginController()
 const loginRoutes = [
   {
     method: 'post',
-    path: '/api/login',
+    path: '/login',
     action: loginController.store.bind(loginController),
     middlewares: [local],
   },

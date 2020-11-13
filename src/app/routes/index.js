@@ -5,6 +5,7 @@ import Response from '../base/Response'
 import oficialRoutes from './OficialRoutes'
 import fileRoutes from './FileRoutes'
 import loginRoutes from './LoginRoutes'
+import logoutRoutes from './LogoutRoutes'
 
 const router = Router()
 
@@ -21,7 +22,7 @@ router.use('/', (request, response, next) => {
   next()
 })
 
-createRoutes(oficialRoutes, fileRoutes, loginRoutes)
+createRoutes(oficialRoutes, fileRoutes, loginRoutes, logoutRoutes)
 
 router.use('/api', router)
 
