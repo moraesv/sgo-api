@@ -18,6 +18,6 @@ module.exports = {
   },
 
   down: (queryInterface) => {
-    return queryInterface.bulkDelete('users', null, {})
+    return queryInterface.bulkDelete('tb_oficial', null, {})
   },
 }

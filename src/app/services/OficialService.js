@@ -7,14 +7,24 @@ export default class OficialService {
     this.oficialRepository = new OficialRepository()
   }
 
-  findAll() {
+  index() {
     return this.oficialRepository.findAll()
   }
 
-  async store(user) {
-    const passwordHash = await bcrypt.hash(user.senha, bcrypt.genSaltSync())
+  show(id) {
+    return this.oficialRepository.findById(id)
+  }
 
-    return this.oficialRepository.create({ ...user, senha: passwordHash })
+  async store(body) {
+    const passwordHash = await bcrypt.hash(body.senha, bcrypt.genSaltSync())
+
+    return this.oficialRepository.create({ ...body, senha: passwordHash })
+  }
+
+  async update(id, body) {
+    const oficial = await this.oficialRepository.findById(id)
+
+    return oficial.update(body)
   }
 
   delete(id) {

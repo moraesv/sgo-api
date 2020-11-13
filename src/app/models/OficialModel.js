@@ -10,7 +10,7 @@ class OficialModel extends BaseModel {
   static tableName = 'tb_oficial'
 
   static columns = {
-    id: { type: DataTypes.INTEGER, primaryKey: true, field: 'id_oficial' },
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true, field: 'id_oficial' },
     nomeOficial: { type: DataTypes.STRING, field: 'nome_oficial' },
     nomeUsuario: { type: DataTypes.STRING, field: 'nome_usuario' },
     chapa: DataTypes.STRING,

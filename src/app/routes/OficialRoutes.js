@@ -11,10 +11,22 @@ const oficialRoutes = [
     middlewares: [auth],
   },
   {
+    method: 'get',
+    path: '/oficiais/:id',
+    action: oficialController.show.bind(oficialController),
+    middlewares: [auth],
+  },
+  {
     method: 'post',
     path: '/oficiais',
     action: oficialController.store.bind(oficialController),
-    middlewares: [],
+    middlewares: [auth],
+  },
+  {
+    method: 'put',
+    path: '/oficiais/:id',
+    action: oficialController.update.bind(oficialController),
+    middlewares: [auth],
   },
   {
     method: 'delete',
