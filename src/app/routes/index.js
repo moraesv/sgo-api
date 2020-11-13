@@ -2,8 +2,9 @@ import { Router } from 'express'
 import Request from '../base/Request'
 import Response from '../base/Response'
 
-import userRoutes from './UserRoutes'
+import oficialRoutes from './OficialRoutes'
 import fileRoutes from './FileRoutes'
+import loginRoutes from './LoginRoutes'
 
 const router = Router()
 
@@ -20,7 +21,7 @@ router.use('/', (request, response, next) => {
   next()
 })
 
-createRoutes(userRoutes, fileRoutes)
+createRoutes(oficialRoutes, fileRoutes, loginRoutes)
 
 router.use('/api', router)
 

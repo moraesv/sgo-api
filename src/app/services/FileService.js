@@ -1,5 +1,5 @@
 import connection from '../config/connection'
-import UserModel from '../models/UserModel'
+import OficialModel from '../models/OficialModel'
 
 import FileRepository from '../repositories/FileRepository'
 
@@ -15,7 +15,7 @@ export default class FileService {
         id,
         name,
       },
-      include: [{ model: UserModel, as: 'user' }],
+      include: [{ model: OficialModel, as: 'user' }],
     })
   }
 

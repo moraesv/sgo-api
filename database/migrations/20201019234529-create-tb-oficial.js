@@ -1,23 +1,36 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('users', {
-      id: {
+    return queryInterface.createTable('tb_oficial', {
+      id_oficial: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      name: {
+      nome_oficial: {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      email: {
+      chapa: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+      },
+      funcional: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+      },
+      nome_usuario: {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      password: {
+      senha: {
         allowNull: false,
         type: Sequelize.STRING,
+      },
+      admin: {
+        allowNull: false,
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
       },
       createdAt: {
         allowNull: false,
@@ -35,6 +48,6 @@ module.exports = {
   },
 
   down: (queryInterface) => {
-    return queryInterface.dropTable('users')
+    return queryInterface.dropTable('tb_oficial')
   },
 }

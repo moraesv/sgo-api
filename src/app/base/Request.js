@@ -1,3 +1,5 @@
+import { setContextUser, getContextUser } from './auth'
+
 export default class Request {
   constructor(req) {
     this.init(req)
@@ -23,11 +25,11 @@ export default class Request {
     }
 
     function getUser() {
-      return req.user
+      return getContextUser()
     }
 
     function setUser(user) {
-      req.user = user
+      setContextUser(user)
     }
 
     req.getBody = getBody

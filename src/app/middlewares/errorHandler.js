@@ -1,6 +1,6 @@
 // import Response from '../base/Response'
 
-export default (error, req, res) => {
+export default (error, req, res, next) => {
   console.error(`\x1b[41m${error}\x1b[0m`) // Erro em vermelho
 
   /* new Response(res)

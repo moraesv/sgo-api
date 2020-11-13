@@ -38,6 +38,14 @@ export default class Response {
       return res.status(httpStatus.INTERNAL_SERVER_ERROR).json(error)
     }
 
+    function setCookie(name, val, options) {
+      return res.cookie(name, val, options)
+    }
+
+    function removeCookie(name, options) {
+      return res.clearCookie(name, options)
+    }
+
     res.okResponse = okResponse
     res.createdResponse = createdResponse
     res.noContentResponse = noContentResponse
@@ -46,5 +54,8 @@ export default class Response {
     res.unauthorizedResponse = unauthorizedResponse
     res.conflictResponse = conflictResponse
     res.internalErrorResponse = internalErrorResponse
+    res.internalErrorResponse = internalErrorResponse
+    res.setCookie = setCookie
+    res.removeCookie = removeCookie
   }
 }

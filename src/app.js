@@ -1,9 +1,17 @@
 import express from 'express'
 import cors from 'cors'
 import path from 'path'
+import morgan from 'morgan'
+import cookieParser from 'cookie-parser'
+import httpContext from 'express-http-context'
+
 import appConfig from './app/config/app'
-import clientConfig from './app/config/client'
+import sessionConfig from './app/config/session'
+
+import corsMiddleware from './app/middlewares/cors'
 import errorHandler from './app/middlewares/errorHandler'
+
+import Passport from './app/base/Passport'
 
 import routes from './app/routes'
 
@@ -17,39 +25,34 @@ class App {
     this.app.listen(appConfig.port, () => console.log(`Server listening on port ${appConfig.port}!`))
   }
 
-  configure() {
-    /*
-    this.app.use(cookieParser(sessionConfig.secret))
-
-    this.app.set('trust proxy', 1)
-    this.app.use(session(sessionConfig))
-
-    sequelizePapertrail()
-
-    passport(this.app) */
-
+  midlewares() {
     this.app.use(express.json())
-
-    const WHITELIST = [appConfig.url, clientConfig.url]
-
-    this.app.use(
-      cors({
-        origin(origin, callback) {
-          if (!origin || WHITELIST.includes(origin)) {
-            return callback(null, true)
-          }
-
-          return callback(new Error('Not allowed by CORS:', origin))
-        },
-        credentials: true,
-      })
-    )
-
-    this.app.use(routes)
-
+    this.app.use(cors())
+    this.app.use(morgan(':method :url :status :response-time :date[clf]'))
     this.app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')))
-
+    this.app.use(httpContext.middleware)
     this.app.use(errorHandler)
+    this.app.use(cookieParser(sessionConfig.secret))
+    this.app.use(corsMiddleware)
+  }
+
+  routes() {
+    this.app.use(routes)
+  }
+
+  passport() {
+    this.app.use(routes)
+    const passport = new Passport().init()
+
+    this.app.use(passport.initialize())
+
+    this.app.use(passport.session())
+  }
+
+  configure() {
+    this.midlewares()
+    this.routes()
+    this.passport()
 
     return this.app
   }

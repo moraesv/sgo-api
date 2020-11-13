@@ -28,7 +28,7 @@ class FileModel extends BaseModel {
   static relations = [
     {
       relation: 'belongsTo',
-      model: 'UserModel',
+      model: 'OficialModel',
       as: 'user',
       foreignKey: 'userId',
     },

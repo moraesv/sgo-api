@@ -1,4 +1,5 @@
 import multer from 'multer'
+import { auth } from '../middlewares/auth'
 
 import uploadConfig from '../config/upload'
 
@@ -13,13 +14,13 @@ const fileRoutes = [
     method: 'get',
     path: '/files/:id/:name',
     action: fileController.show.bind(fileController),
-    middlewares: [],
+    middlewares: [auth],
   },
   {
     method: 'post',
     path: '/files/upload',
     action: fileController.upload.bind(fileController),
-    middlewares: [upload.single('file')],
+    middlewares: [auth, upload.single('file')],
   },
 ]
 
