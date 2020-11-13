@@ -27,13 +27,12 @@ class App {
 
   midlewares() {
     this.app.use(express.json())
-    this.app.use(cors())
+    this.app.use(corsMiddleware)
     this.app.use(morgan(':method :url :status :response-time :date[clf]'))
     this.app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')))
     this.app.use(httpContext.middleware)
     this.app.use(errorHandler)
     this.app.use(cookieParser(sessionConfig.secret))
-    this.app.use(corsMiddleware)
   }
 
   routes() {
