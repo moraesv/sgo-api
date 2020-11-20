@@ -6,6 +6,7 @@ import oficialRoutes from './OficialRoutes'
 import fileRoutes from './FileRoutes'
 import loginRoutes from './LoginRoutes'
 import logoutRoutes from './LogoutRoutes'
+import profileRoutes from './ProfileRoutes'
 
 const router = Router()
 
@@ -22,7 +23,7 @@ router.use('/', (request, response, next) => {
   next()
 })
 
-createRoutes(oficialRoutes, fileRoutes, loginRoutes, logoutRoutes)
+createRoutes(oficialRoutes, fileRoutes, loginRoutes, logoutRoutes, profileRoutes)
 
 router.use('/api', router)
 
