@@ -1,7 +1,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('tb_oficial', {
-      id_oficial: {
+      id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -31,6 +31,11 @@ module.exports = {
         allowNull: false,
         type: Sequelize.BOOLEAN,
         defaultValue: false,
+      },
+      ativo: {
+        allowNull: false,
+        type: Sequelize.BOOLEAN,
+        defaultValue: true,
       },
       createdAt: {
         allowNull: false,

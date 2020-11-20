@@ -35,7 +35,9 @@ export default class OficialController {
       const body = request.getBody()
       const oficial = await this.oficialService.store(body)
 
-      return response.okResponse(oficial)
+      const { senha, ...result } = oficial.toJSON()
+
+      return response.okResponse(result)
     } catch (e) {
       console.log(e)
 
@@ -49,7 +51,9 @@ export default class OficialController {
       const body = request.getBody()
       const oficial = await this.oficialService.update(id, body)
 
-      return response.okResponse(oficial)
+      const { senha, ...result } = oficial.toJSON()
+
+      return response.okResponse(result)
     } catch (e) {
       console.log(e)
 

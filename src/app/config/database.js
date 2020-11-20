@@ -5,4 +5,5 @@ module.exports = {
   host: process.env.DB_HOST,
   dialect: process.env.DB_DIALECT,
   logging: process.env.LOGGING && JSON.parse(process.env.LOGGING),
+  omitNull: true,
 }

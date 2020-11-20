@@ -12,7 +12,7 @@ module.exports = {
         allowNull: false,
         references: {
           model: 'tb_oficial',
-          key: 'id_oficial',
+          key: 'id',
         },
       },
       name: {

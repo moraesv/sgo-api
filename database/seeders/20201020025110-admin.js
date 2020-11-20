@@ -4,7 +4,7 @@ module.exports = {
       'tb_oficial',
       [
         {
-          id_oficial: 1,
+          id: 1,
           nome_oficial: 'Administrador',
           nome_usuario: 'admin',
           senha: '$2a$10$Ac3OoKpWg5ynXyOXh0VphujY8/yNzBnihsFlIOr2tKPXdyur1G5tC',

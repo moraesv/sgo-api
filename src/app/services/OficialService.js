@@ -1,4 +1,6 @@
 import bcrypt from 'bcryptjs'
+import { format } from 'date-fns'
+import ptBr from 'date-fns/locale/pt-BR'
 
 import OficialRepository from '../repositories/OficialRepository'
 
@@ -7,8 +9,15 @@ export default class OficialService {
     this.oficialRepository = new OficialRepository()
   }
 
-  index() {
-    return this.oficialRepository.findAll()
+  async index() {
+    const oficiais = await this.oficialRepository.findAll({ order: [['createdAt', 'asc']] })
+
+    return oficiais.map((oficial) => {
+      return {
+        ...oficial.toJSON(),
+        criadoEm: format(new Date(oficial.createdAt), 'dd/MM/yyyy', { locale: ptBr }),
+      }
+    })
   }
 
   show(id) {
@@ -16,6 +25,7 @@ export default class OficialService {
   }
 
   async store(body) {
+    console.log(body)
     const passwordHash = await bcrypt.hash(body.senha, bcrypt.genSaltSync())
 
     return this.oficialRepository.create({ ...body, senha: passwordHash })
