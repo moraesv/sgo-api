@@ -14,6 +14,8 @@ export default class AvisoService {
     return tiposPista.map((oficial) => {
       return {
         ...oficial.toJSON(),
+        inicio: format(new Date(oficial.inicio), 'dd/MM/yyyy', { locale: ptBr }),
+        fim: format(new Date(oficial.fim), 'dd/MM/yyyy', { locale: ptBr }),
         criadoEm: format(new Date(oficial.createdAt), 'dd/MM/yyyy', { locale: ptBr }),
       }
     })

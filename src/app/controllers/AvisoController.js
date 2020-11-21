@@ -7,9 +7,9 @@ export default class AvisoController {
 
   async index(request, response) {
     try {
-      const tiposPista = await this.avisoService.index()
+      const avisos = await this.avisoService.index()
 
-      return response.okResponse(tiposPista)
+      return response.okResponse(avisos)
     } catch (e) {
       console.log(e)
 

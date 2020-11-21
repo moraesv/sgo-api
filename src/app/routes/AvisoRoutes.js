@@ -7,31 +7,31 @@ const avisoRoutes = [
   {
     method: 'get',
     path: '/avisos',
-    action: avisoController.index.bind(AvisoController),
+    action: avisoController.index.bind(avisoController),
     middlewares: [auth],
   },
   {
     method: 'get',
     path: '/avisos/:id',
-    action: avisoController.show.bind(AvisoController),
+    action: avisoController.show.bind(avisoController),
     middlewares: [auth],
   },
   {
     method: 'post',
     path: '/avisos',
-    action: avisoController.store.bind(AvisoController),
+    action: avisoController.store.bind(avisoController),
     middlewares: [auth],
   },
   {
     method: 'put',
     path: '/avisos/:id',
-    action: avisoController.update.bind(AvisoController),
+    action: avisoController.update.bind(avisoController),
     middlewares: [auth],
   },
   {
     method: 'delete',
     path: '/avisos/:id',
-    action: avisoController.delete.bind(AvisoController),
+    action: avisoController.delete.bind(avisoController),
     middlewares: [auth],
   },
 ]

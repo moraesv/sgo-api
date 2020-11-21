@@ -7,7 +7,7 @@ class AvisoModel extends BaseModel {
     return super.init(this)
   }
 
-  static tableName = 'tb_Aviso'
+  static tableName = 'tb_avisos'
 
   static columns = {
     titulo: DataTypes.STRING,
