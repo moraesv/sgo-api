@@ -14,6 +14,7 @@ import statusSemaforoRoutes from './StatusSemaforoRoutes'
 import tempoLocalRoutes from './TempoLocalRoutes'
 import tipoAcidenteRoutes from './TipoAcidenteRoutes'
 import tipoPistaRoutes from './TipoPistaRoutes'
+import avisoRoutes from './AvisoRoutes'
 
 const router = Router()
 
@@ -42,7 +43,8 @@ createRoutes(
   statusSemaforoRoutes,
   tempoLocalRoutes,
   tipoAcidenteRoutes,
-  tipoPistaRoutes
+  tipoPistaRoutes,
+  avisoRoutes
 )
 
 router.use('/api', router)
