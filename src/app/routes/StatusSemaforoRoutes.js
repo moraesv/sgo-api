@@ -6,31 +6,31 @@ const statusSemaforoController = new StatusSemaforoController()
 const statusSemaforoRoutes = [
   {
     method: 'get',
-    path: '/statuses-semaforo',
+    path: '/status-semaforo',
     action: statusSemaforoController.index.bind(statusSemaforoController),
     middlewares: [auth],
   },
   {
     method: 'get',
-    path: '/statuses-semaforo/:id',
+    path: '/status-semaforo/:id',
     action: statusSemaforoController.show.bind(statusSemaforoController),
     middlewares: [auth],
   },
   {
     method: 'post',
-    path: '/statuses-semaforo',
+    path: '/status-semaforo',
     action: statusSemaforoController.store.bind(statusSemaforoController),
     middlewares: [auth],
   },
   {
     method: 'put',
-    path: '/statuses-semaforo/:id',
+    path: '/status-semaforo/:id',
     action: statusSemaforoController.update.bind(statusSemaforoController),
     middlewares: [auth],
   },
   {
     method: 'delete',
-    path: '/statuses-semaforo/:id',
+    path: '/status-semaforo/:id',
     action: statusSemaforoController.delete.bind(statusSemaforoController),
     middlewares: [auth],
   },
