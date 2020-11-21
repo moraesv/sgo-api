@@ -43,7 +43,7 @@
   "scripts": {
     "dev": "env-cmd -f ./.env nodemon ./src/server.js",
     "build": "env-cmd -f ./.env sucrase ./src -d ./build --transforms imports",
-    "commit": "git-cz",
+    "commit": "yarn git-cz",
     "lint": "yarn eslint ./src",
     "db:recreate": "env-cmd -f ./.env sequelize db:drop && env-cmd -f ./.env sequelize db:create --charset utf8mb4",
     "migrate": "env-cmd -f ./.env sequelize db:migrate",

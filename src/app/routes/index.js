@@ -7,6 +7,13 @@ import fileRoutes from './FileRoutes'
 import loginRoutes from './LoginRoutes'
 import logoutRoutes from './LogoutRoutes'
 import profileRoutes from './ProfileRoutes'
+import caracteristicasLocalRoutes from './CaracteristicasLocalRoutes'
+import formaSinalizacaoRoutes from './FormaSinalizacaoRoutes'
+import iluminacaoLocalRoutes from './IluminacaoLocalRoutes'
+import statusSemaforoRoutes from './StatusSemaforoRoutes'
+import tempoLocalRoutes from './TempoLocalRoutes'
+import tipoAcidenteRoutes from './TipoAcidenteRoutes'
+import tipoPistaRoutes from './TipoPistaRoutes'
 
 const router = Router()
 
@@ -23,7 +30,20 @@ router.use('/', (request, response, next) => {
   next()
 })
 
-createRoutes(oficialRoutes, fileRoutes, loginRoutes, logoutRoutes, profileRoutes)
+createRoutes(
+  oficialRoutes,
+  fileRoutes,
+  loginRoutes,
+  logoutRoutes,
+  profileRoutes,
+  caracteristicasLocalRoutes,
+  formaSinalizacaoRoutes,
+  iluminacaoLocalRoutes,
+  statusSemaforoRoutes,
+  tempoLocalRoutes,
+  tipoAcidenteRoutes,
+  tipoPistaRoutes
+)
 
 router.use('/api', router)
 

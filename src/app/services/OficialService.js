@@ -25,7 +25,6 @@ export default class OficialService {
   }
 
   async store(body) {
-    console.log(body)
     const passwordHash = await bcrypt.hash(body.senha, bcrypt.genSaltSync())
 
     return this.oficialRepository.create({ ...body, senha: passwordHash })
