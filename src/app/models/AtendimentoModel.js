@@ -11,6 +11,7 @@ class AtendimentoModel extends BaseModel {
 
   static columns = {
     telefone: DataTypes.STRING,
+    descricao: DataTypes.STRING,
     horaAtendimento: DataTypes.TIME,
     inicioAtuacao: DataTypes.TIME,
     fimAtuacao: DataTypes.TIME,
@@ -20,7 +21,7 @@ class AtendimentoModel extends BaseModel {
     outros: DataTypes.STRING,
     enderecoId: DataTypes.INTEGER,
     oficialId: DataTypes.INTEGER,
-    ativo: DataTypes.BOOLEAN,
+    finalizado: DataTypes.BOOLEAN,
   }
 
   static relations = [

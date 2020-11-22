@@ -10,17 +10,23 @@ export default class AtendimentoService {
   constructor() {
     this.atendimentoRepository = new AtendimentoRepository()
     this.enderecoRepository = new EnderecoRepository()
-    this.enderecoModel = new EnderecoModel()
-    this.oficialModel = new OficialModel()
+    this.enderecoModel = EnderecoModel.init()
+    this.oficialModel = OficialModel.init()
   }
 
   async index() {
-    const atendimentos = await this.atendimentoRepository.findAll({ order: [['createdAt', 'asc']] })
+    const atendimentos = await this.atendimentoRepository.findAll({
+      order: [['createdAt', 'asc']],
+      include: [
+        { model: this.enderecoModel, as: 'endereco' },
+        { model: this.oficialModel, as: 'oficial' },
+      ],
+    })
 
     return atendimentos.map((oficial) => {
       return {
         ...oficial.toJSON(),
-        criadoEm: format(new Date(oficial.createdAt), 'dd/MM/yyyy', { locale: ptBr }),
+        criadoEm: format(new Date(oficial.createdAt), 'dd/MM/yyyy HH:mm', { locale: ptBr }),
       }
     })
   }
@@ -29,7 +35,7 @@ export default class AtendimentoService {
     return this.atendimentoRepository.findById(id, {
       include: [
         { model: this.enderecoModel, as: 'endereco' },
-        { model: this.enderecoModel, as: 'oficial' },
+        { model: this.oficialModel, as: 'oficial' },
       ],
     })
   }
@@ -40,7 +46,7 @@ export default class AtendimentoService {
   }
 
   async update(id, body) {
-    await this.enderecoRepository.update({ ...body.endereco }, { where: { id: body.endereco.id } })
+    await this.enderecoRepository.update({ ...body.endereco }, body.enderecoId)
     const atendimento = await this.atendimentoRepository.findById(id)
 
     return atendimento.update(body)

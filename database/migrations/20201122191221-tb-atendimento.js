@@ -17,6 +17,12 @@ module.exports = {
         type: Sequelize.STRING,
       },
 
+      descricao: {
+        allowNull: true,
+
+        type: Sequelize.TEXT,
+      },
+
       horaAtendimento: {
         allowNull: true,
 
