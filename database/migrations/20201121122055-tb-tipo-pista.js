@@ -12,13 +12,13 @@ module.exports = {
       },
 
       nome: {
-        allowNull: false,
+        allowNull: true,
 
         type: Sequelize.STRING,
       },
 
       ativo: {
-        allowNull: false,
+        allowNull: true,
 
         type: Sequelize.BOOLEAN,
 
@@ -26,7 +26,7 @@ module.exports = {
       },
 
       createdAt: {
-        allowNull: false,
+        allowNull: true,
 
         type: Sequelize.DATE,
 

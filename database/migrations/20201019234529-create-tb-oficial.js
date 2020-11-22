@@ -1,6 +1,6 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('tb_oficial', {
+    return queryInterface.createTable('tb_oficiais', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -8,37 +8,37 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       nome_oficial: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.STRING,
       },
       chapa: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.INTEGER,
       },
       funcional: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.INTEGER,
       },
       nome_usuario: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.STRING,
       },
       senha: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.STRING,
       },
       admin: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.BOOLEAN,
         defaultValue: false,
       },
       ativo: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.BOOLEAN,
         defaultValue: true,
       },
       createdAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE,
         defaultValue: Sequelize.fn('NOW'),
       },
@@ -53,6 +53,6 @@ module.exports = {
   },
 
   down: (queryInterface) => {
-    return queryInterface.dropTable('tb_oficial')
+    return queryInterface.dropTable('tb_oficiais')
   },
 }

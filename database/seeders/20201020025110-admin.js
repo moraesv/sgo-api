@@ -1,7 +1,7 @@
 module.exports = {
   up: (queryInterface) => {
     return queryInterface.bulkInsert(
-      'tb_oficial',
+      'tb_oficiais',
       [
         {
           id: 1,
@@ -18,6 +18,6 @@ module.exports = {
   },
 
   down: (queryInterface) => {
-    return queryInterface.bulkDelete('tb_oficial', null, {})
+    return queryInterface.bulkDelete('tb_oficiais', null, {})
   },
 }

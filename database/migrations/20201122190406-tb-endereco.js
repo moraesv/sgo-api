@@ -1,46 +1,92 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('files', {
+    return queryInterface.createTable('tb_enderecos', {
       id: {
         allowNull: false,
+
         autoIncrement: true,
+
         primaryKey: true,
-        type: Sequelize.BIGINT,
-      },
-      userId: {
+
         type: Sequelize.INTEGER,
-        allowNull: true,
-        references: {
-          model: 'tb_oficiais',
-          key: 'id',
-        },
       },
-      name: {
+
+      cep: {
+        allowNull: true,
+
         type: Sequelize.STRING,
-        allowNull: true,
       },
-      mimeType: {
+
+      estado: {
+        allowNull: true,
+
         type: Sequelize.STRING,
-        allowNull: true,
       },
-      size: {
-        type: Sequelize.BIGINT,
+
+      cidade: {
         allowNull: true,
+
+        type: Sequelize.STRING,
       },
-      temporary: {
+
+      bairro: {
+        allowNull: true,
+
+        type: Sequelize.STRING,
+      },
+
+      logradouro: {
+        allowNull: true,
+
+        type: Sequelize.STRING,
+      },
+
+      endereco: {
+        allowNull: true,
+
+        type: Sequelize.STRING,
+      },
+
+      numero: {
+        allowNull: true,
+
+        type: Sequelize.STRING,
+      },
+
+      complemento: {
+        allowNull: true,
+
+        type: Sequelize.STRING,
+      },
+
+      referencia: {
+        allowNull: true,
+
+        type: Sequelize.STRING,
+      },
+
+      ativo: {
+        allowNull: true,
+
         type: Sequelize.BOOLEAN,
-        allowNull: true,
+
         defaultValue: true,
       },
+
       createdAt: {
         allowNull: true,
+
         type: Sequelize.DATE,
+
         defaultValue: Sequelize.fn('NOW'),
       },
+
       updatedAt: {
         type: Sequelize.DATE,
+
         defaultValue: Sequelize.fn('NOW'),
       },
+
       deletedAt: {
         type: Sequelize.DATE,
       },
@@ -48,6 +94,6 @@ module.exports = {
   },
 
   down: (queryInterface) => {
-    return queryInterface.dropTable('files')
+    return queryInterface.dropTable('tb_enderecos')
   },
 }

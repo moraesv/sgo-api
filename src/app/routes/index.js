@@ -15,6 +15,7 @@ import tempoLocalRoutes from './TempoLocalRoutes'
 import tipoAcidenteRoutes from './TipoAcidenteRoutes'
 import tipoPistaRoutes from './TipoPistaRoutes'
 import avisoRoutes from './AvisoRoutes'
+import atendimentoRoutes from './AtendimentoRoutes'
 
 const router = Router()
 
@@ -44,7 +45,8 @@ createRoutes(
   tempoLocalRoutes,
   tipoAcidenteRoutes,
   tipoPistaRoutes,
-  avisoRoutes
+  avisoRoutes,
+  atendimentoRoutes
 )
 
 router.use('/api', router)

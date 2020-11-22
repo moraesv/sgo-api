@@ -7,7 +7,7 @@ class OficialModel extends BaseModel {
     return super.init(this)
   }
 
-  static tableName = 'tb_oficial'
+  static tableName = 'tb_oficiais'
 
   static columns = {
     nomeOficial: { type: DataTypes.STRING, field: 'nome_oficial' },

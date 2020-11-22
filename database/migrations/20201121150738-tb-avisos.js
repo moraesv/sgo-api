@@ -12,31 +12,31 @@ module.exports = {
       },
 
       titulo: {
-        allowNull: false,
+        allowNull: true,
 
         type: Sequelize.STRING,
       },
 
       inicio: {
-        allowNull: false,
+        allowNull: true,
 
         type: Sequelize.DATE,
       },
 
       fim: {
-        allowNull: false,
+        allowNull: true,
 
         type: Sequelize.DATE,
       },
 
       descricao: {
-        allowNull: false,
+        allowNull: true,
 
         type: Sequelize.TEXT,
       },
 
       ativo: {
-        allowNull: false,
+        allowNull: true,
 
         type: Sequelize.BOOLEAN,
 
@@ -44,7 +44,7 @@ module.exports = {
       },
 
       createdAt: {
-        allowNull: false,
+        allowNull: true,
 
         type: Sequelize.DATE,
 
